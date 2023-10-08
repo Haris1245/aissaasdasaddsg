@@ -13,8 +13,9 @@ import {
   Settings,
   VideoIcon,
   PenLine,
-  Video,
   FileVideo,
+  Home,
+  Frame,
 } from "lucide-react";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
@@ -48,6 +49,18 @@ const routes = [
     icon: ImageIcon,
     href: "/image",
     color: "text-pink-700",
+  },
+  {
+    label: "Interior",
+    icon: Home,
+    href: "/interior",
+    color: "text-emerald-300",
+  },
+  {
+    label: "Icons and Logos",
+    icon: Frame,
+    href: "/icons",
+    color: "text-sky-300",
   },
   {
     label: "Video Generation",

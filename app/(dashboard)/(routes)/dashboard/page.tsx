@@ -6,6 +6,8 @@ import {
   ArrowRight,
   Code,
   FileVideo,
+  Frame,
+  Home,
   ImageIcon,
   MessageSquare,
   Music,
@@ -38,6 +40,18 @@ const tools = [
     icon: ImageIcon,
     href: "/image",
     color: "text-pink-700",
+  },
+  {
+    label: "Interior",
+    icon: Home,
+    href: "/interior",
+    color: "text-emerald-300",
+  },
+  {
+    label: "Icons and Logos",
+    icon: Frame,
+    href: "/icons",
+    color: "text-sky-300",
   },
   {
     label: "Video Generation",

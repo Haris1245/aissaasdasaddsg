@@ -23,6 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
+import downloadPhoto from "./downolad";
+import appendNewToName from "./newname";
 const ImagePage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
@@ -160,19 +162,19 @@ const ImagePage = () => {
           {images.length === 0 && !isLoading && (
             <Empty label="No images generated" />
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-4 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-8">
             {images.map((src) => (
               <Card key={src} className="rounded-lg overflow-hidden">
                 <div className="relative aspect-square">
-                  <img alt="image" layout="fill" src={src} />
+                  <img alt="image" src={src} width={500} height={500} />
                 </div>
                 <CardFooter className="p-2">
                   <Button
-                    onClick={() => window.open(src)}
                     variant="secondary"
-                    className="w-full"
+                    className="w-50 border-black border-2 block m-auto hover:bg-slate-600 hover:text-white"
+                    onClick={() => window.open(src)}
                   >
-                    <Download className="h-4 w-4 mr-4" />
+                    <h1 className="block m-auto w-20 ">DOWNLOAD</h1>
                   </Button>
                 </CardFooter>
               </Card>
