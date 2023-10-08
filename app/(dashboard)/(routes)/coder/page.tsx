@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import OpenAI from "openai";
 import { cn } from "@/lib/utils";
-import { formSchema } from "./constants";
+import { formSchema } from "@/app/(dashboard)/(routes)/coder/constants";
 import ReactMarkdown from "react-markdown";
 
 import { useForm } from "react-hook-form";
