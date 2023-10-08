@@ -2,9 +2,9 @@
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Music, Video } from "lucide-react";
+import { Video } from "lucide-react";
 import Heading from "@/components/heading";
-import { formSchema } from "./constants";
+import { formSchema } from "@/app/(dashboard)/(routes)/video/constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

@@ -4,17 +4,20 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, Image } from "lucide-react";
 import Heading from "@/components/heading";
-import { amountOptions, formSchema, resolutionOptions } from "./constants";
+import {
+  amountOptions,
+  formSchema,
+  resolutionOptions,
+} from "@/app/(dashboard)/(routes)/image/constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
-import OpenAI from "openai";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { cn } from "@/lib/utils";
+
 import {
   Select,
   SelectContent,
@@ -23,8 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
-import downloadPhoto from "./downolad";
-import appendNewToName from "./newname";
+
 const ImagePage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
