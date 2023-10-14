@@ -1,18 +1,22 @@
 "use client";
 import * as z from "zod";
-import { useForm } from "react-hook-form";
+import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Video } from "lucide-react";
-import Heading from "@/components/heading";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { formSchema } from "@/app/(dashboard)/(routes)/video/constants";
+
+import Heading from "@/components/heading";
+import { Empty } from "@/components/empty";
+import { Loader } from "@/components/loader";
+
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { useState } from "react";
-import { Empty } from "@/components/empty";
-import { Loader } from "@/components/loader";
 
 const VideoPage = () => {
   const router = useRouter();

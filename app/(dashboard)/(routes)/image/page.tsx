@@ -1,23 +1,21 @@
 "use client";
+
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Download, Image } from "lucide-react";
-import Heading from "@/components/heading";
-import {
-  amountOptions,
-  formSchema,
-  resolutionOptions,
-} from "@/app/(dashboard)/(routes)/image/constants";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+
 import axios from "axios";
+
+import { useRouter } from "next/navigation";
+import { Download, Image } from "lucide-react";
 import { useState } from "react";
+
+import Heading from "@/components/heading";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -26,6 +24,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+
+import {
+  amountOptions,
+  formSchema,
+  resolutionOptions,
+} from "@/app/(dashboard)/(routes)/image/constants";
+import downloadPhoto from "./downolad";
+import appendNewToName from "./newname";
 
 const ImagePage = () => {
   const router = useRouter();
@@ -70,12 +77,12 @@ const ImagePage = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="rouned-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2"
+              className="rouned-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-11 gap-2"
             >
               <FormField
                 name="prompt"
                 render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-6">
+                  <FormItem className="col-span-12 lg:col-span-5 ">
                     <FormControl className="m-0 p-0">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
@@ -91,7 +98,7 @@ const ImagePage = () => {
                 control={form.control}
                 name="amount"
                 render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-2">
+                  <FormItem className="col-span-12 lg:col-span-3">
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -118,7 +125,7 @@ const ImagePage = () => {
                 control={form.control}
                 name="resolution"
                 render={({ field }) => (
-                  <FormItem className="col-span-12 lg:col-span-2">
+                  <FormItem className="col-span-12 lg:col-span-1">
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
@@ -170,14 +177,16 @@ const ImagePage = () => {
                 <div className="relative aspect-square">
                   <img alt="image" src={src} width={500} height={500} />
                 </div>
-                <CardFooter className="p-2">
-                  <Button
-                    variant="secondary"
-                    className="w-50 border-black border-2 block m-auto hover:bg-slate-600 hover:text-white"
-                    onClick={() => window.open(src)}
-                  >
-                    <h1 className="block m-auto w-20 ">DOWNLOAD</h1>
-                  </Button>
+                <CardFooter
+                  className="p-2 bg-slate-400 h-10"
+                  onClick={() =>
+                    downloadPhoto(
+                      src,
+                      appendNewToName(`winnerai-image-generation.png`)
+                    )
+                  }
+                >
+                  <Download className="block m-auto w-20 " />
                 </CardFooter>
               </Card>
             ))}

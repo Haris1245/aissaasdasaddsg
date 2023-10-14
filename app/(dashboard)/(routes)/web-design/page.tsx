@@ -1,27 +1,30 @@
 "use client";
-
 import * as z from "zod";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 
-import { Music } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { Home, Layout } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 
-import { formSchema } from "@/app/(dashboard)/(routes)/music/constants";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardFooter } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+
+import downloadPhoto from "@/public/downolad";
+import appendNewToName from "@/public/newname";
+import { formSchema } from "@/app/(dashboard)/(routes)/interior/constants";
 
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-
-const MusicPage = () => {
+const WebDesignPage = () => {
   const router = useRouter();
-  const [music, setMusic] = useState<string>();
+  const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,10 +37,11 @@ const MusicPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      setMusic(undefined);
-      const response = await axios.post("/api/music", values);
+      setImages([]);
+      const response = await axios.post("/api/web-design", values);
 
-      setMusic(response.data.audio);
+      console.log(response.data);
+      setImages(response.data);
       form.reset();
     } catch (error: any) {
       console.log(error);
@@ -49,10 +53,10 @@ const MusicPage = () => {
   return (
     <div>
       <Heading
-        title="Music"
-        description="AI Music Generator"
-        icon={Music}
-        iconColor="text-emerald-500"
+        title="Web Design"
+        description="Generate Web Design with AI"
+        icon={Layout}
+        iconColor="text-teal-500"
       />
       <div className="px-4 lg:px-8">
         <div>
@@ -69,13 +73,14 @@ const MusicPage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="piano solo"
+                        placeholder="Landing page screenshot of Tesla, website, ui, behance, figma"
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
+
               <Button
                 className="col-span-12 lg:col-span-2 w-full"
                 disabled={isLoading}
@@ -87,21 +92,36 @@ const MusicPage = () => {
         </div>
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <div className="p-20">
               <Loader />
             </div>
           )}
 
-          {!music && !isLoading && <Empty label="No music yet" />}
-          {music && (
-            <audio controls className="w-full mt-8 accent-slate-50">
-              <source src={music} />
-            </audio>
+          {images.length === 0 && !isLoading && (
+            <Empty label="No images generated" />
           )}
+          <div className=" flex items-center">
+            {images.map((src) => (
+              <Card key={src} className="rounded-lg block m-auto">
+                <div className="relative aspect-square">
+                  <img alt="image" src={src} layout="fill" />
+                </div>
+                <CardFooter className="p-2">
+                  <Button
+                    variant="secondary"
+                    className="w-50 border-black border-2 block m-auto hover:bg-slate-600 hover:text-white"
+                    onClick={() => downloadPhoto(src, appendNewToName(src))}
+                  >
+                    <h1 className="block m-auto w-20 ">DOWNLOAD</h1>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default MusicPage;
+export default WebDesignPage;

@@ -6,7 +6,7 @@ import axios from "axios";
 import { cn } from "@/lib/utils";
 import OpenAI from "openai";
 
-import { MessageSquare, Volume2 } from "lucide-react";
+import { MessageSquare, Music2, Volume2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -22,14 +22,8 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-const ConversationPage = () => {
+
+const MusicLyricsPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
     []
@@ -51,7 +45,7 @@ const ConversationPage = () => {
         content: values.prompt,
       };
       const newMessages = [...messages, userMessage];
-      const response = await axios.post("/api/consultant", {
+      const response = await axios.post("/api/lyrics", {
         messages: newMessages,
       });
 
@@ -68,10 +62,10 @@ const ConversationPage = () => {
   return (
     <div>
       <Heading
-        title="Consulatnt"
-        description="AI Consultant"
-        icon={MessageSquare}
-        iconColor="text-violet-500"
+        title="Musci Lyrics"
+        description="AI Music Lyrics writer"
+        icon={Music2}
+        iconColor="text-orange-500"
       />
       <div className="px-4 lg:px-8 ">
         <div>
@@ -88,7 +82,7 @@ const ConversationPage = () => {
                       <Input
                         className="w-full border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="Do I sell or do I keep my company"
+                        placeholder="Write me a copy of Travis Scott song"
                         {...field}
                       />
                     </FormControl>
@@ -127,7 +121,9 @@ const ConversationPage = () => {
               >
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
 
-                <p className="text-sm">{message.content}</p>
+                <p className="text-sm break-words w-[400px] text-centre">
+                  {message.content}
+                </p>
               </div>
             ))}
           </div>
@@ -137,4 +133,4 @@ const ConversationPage = () => {
   );
 };
 
-export default ConversationPage;
+export default MusicLyricsPage;

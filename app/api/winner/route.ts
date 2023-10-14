@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
       model: "gpt-3.5-turbo",
 
-      messages: [{"role": "system", "content" : "You are a helpful business consultant that helps entrepreneurs verify and make business decisions"}, ...messages],
+      messages: [{"role": "system", "content" : "You are a helpful chatbot"}, ...messages],
 
   })
 

@@ -1,22 +1,28 @@
 "use client";
 import * as z from "zod";
-import { useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Frame } from "lucide-react";
-import Heading from "@/components/heading";
-import { formSchema } from "@/app/(dashboard)/(routes)/icons/constants";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import axios from "axios";
+
+import { Home, VenetianMask } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { useState } from "react";
-import { Empty } from "@/components/empty";
-import { Loader } from "@/components/loader";
+import { Card, CardFooter } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+
 import downloadPhoto from "@/public/downolad";
 import appendNewToName from "@/public/newname";
-import { Card, CardFooter } from "@/components/ui/card";
-const IconPage = () => {
+import { formSchema } from "@/app/(dashboard)/(routes)/interior/constants";
+
+import Heading from "@/components/heading";
+import { Empty } from "@/components/empty";
+import { Loader } from "@/components/loader";
+
+const InteriorPage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -32,7 +38,7 @@ const IconPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setImages([]);
-      const response = await axios.post("/api/icon", values);
+      const response = await axios.post("/api/emoji", values);
 
       console.log(response.data);
       setImages(response.data);
@@ -47,10 +53,10 @@ const IconPage = () => {
   return (
     <div>
       <Heading
-        title="Icons and logos"
-        description="Generate Graphic Design with AI"
-        icon={Frame}
-        iconColor="text-sky-300"
+        title="Emoji"
+        description="Generate Emojis from text with AI"
+        icon={VenetianMask}
+        iconColor="text-red-500"
       />
       <div className="px-4 lg:px-8">
         <div>
@@ -67,7 +73,7 @@ const IconPage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="A logo for a banking app"
+                        placeholder="Steve Jobs"
                         {...field}
                       />
                     </FormControl>
@@ -96,7 +102,7 @@ const IconPage = () => {
           )}
           <div className=" flex items-center">
             {images.map((src) => (
-              <Card key={src} className="rounded-lg">
+              <Card key={src} className="rounded-lg block m-auto">
                 <div className="relative aspect-square">
                   <img alt="image" src={src} width={300} height={300} />
                 </div>
@@ -118,4 +124,4 @@ const IconPage = () => {
   );
 };
 
-export default IconPage;
+export default InteriorPage;

@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <div className="flex items-center p-4">
       <MobileSidebar />
-      <div className="flex w-full justify-end">
+      <div className="flex w-full justify-end hover:animate-pulse">
         <UserButton afterSignOutUrl="/" />
       </div>
     </div>

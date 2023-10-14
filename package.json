@@ -24,6 +24,7 @@
     "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "elevenlabs-node": "^1.2.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "lucide-react": "^0.279.0",
@@ -41,10 +42,12 @@
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2",
+    "typewriter-effect": "^2.21.0",
     "zod": "^3.22.2"
   },
   "devDependencies": {
     "encoding": "^0.1.13",
-    "prisma": "^5.4.1"
+    "prisma": "^5.4.1",
+    "tailwindcss-animated": "^1.0.1"
   }
 }

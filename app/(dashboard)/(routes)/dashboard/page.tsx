@@ -4,18 +4,30 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
   ArrowRight,
+  Bot,
   Code,
   FileVideo,
+  Film,
   Frame,
   Home,
   ImageIcon,
+  Layout,
   MessageSquare,
   Music,
+  Music2,
   PenLine,
+  PenTool,
+  VenetianMask,
   VideoIcon,
 } from "lucide-react";
 
 const tools = [
+  {
+    label: "Winner",
+    icon: Bot,
+    href: "/winner",
+    color: "text-cyan-400",
+  },
   {
     label: "Consultant",
     icon: MessageSquare,
@@ -36,11 +48,18 @@ const tools = [
     color: "text-yellow-500",
   },
   {
+    label: "Music Lyrics",
+    icon: Music2,
+    href: "/lyrics",
+    color: "text-orange-500",
+  },
+  {
     label: "Image Generation",
     icon: ImageIcon,
     href: "/image",
     color: "text-pink-700",
   },
+
   {
     label: "Interior",
     icon: Home,
@@ -48,9 +67,9 @@ const tools = [
     color: "text-emerald-300",
   },
   {
-    label: "Icons and Logos",
+    label: "Graphic Design",
     icon: Frame,
-    href: "/icons",
+    href: "/graphic-design",
     color: "text-sky-300",
   },
   {
@@ -65,11 +84,36 @@ const tools = [
     href: "/animation",
     color: "text-lime-500",
   },
+
   {
     label: "Music Generation",
     icon: Music,
     href: "/music",
     color: "text-emerald-500",
+  },
+  {
+    label: "Emoji Generation",
+    icon: VenetianMask,
+    href: "/emoji",
+    color: "text-red-500",
+  },
+  {
+    label: "Web Design",
+    icon: Layout,
+    href: "/web-design",
+    color: "text-teal-400",
+  },
+  {
+    label: "Illustration",
+    icon: PenTool,
+    href: "/illustration",
+    color: "text-indigo-800",
+  },
+  {
+    label: "Stable Diffusion",
+    icon: ImageIcon,
+    href: "/stable",
+    color: "text-violet-800",
   },
 ];
 
@@ -84,16 +128,16 @@ export default function DashboardPage() {
           Use the most powerful AI - Experience the power of AI
         </p>
       </div>
-      <div className="px-4 md:px-20 lg:px-32 space-y-4">
+      <div className="px-4 md:px-20 lg:px-32 space-y-4 ">
         {tools.map((tool) => (
           <Link href={tool.href} key={tool.href}>
             <Card
               key={tool.href}
-              className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
+              className="p-4 hover:drop-shadow shadow- border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
             >
-              <div className="flex items-center gap-x-4">
+              <div className="flex items-center gap-x-4 ">
                 <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
-                  <tool.icon className={cn("w-8 h-8", tool.color)} />
+                  <tool.icon className={cn(`w-8 h-8`, tool.color)} />
                 </div>
                 <div className="font-semibold">{tool.label}</div>
               </div>

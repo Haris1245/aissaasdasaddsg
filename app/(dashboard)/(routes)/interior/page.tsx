@@ -1,28 +1,27 @@
 "use client";
 import * as z from "zod";
-import { useForm } from "react-hook-form";
+
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+
 import { Home } from "lucide-react";
-import Heading from "@/components/heading";
-import { formSchema } from "@/app/(dashboard)/(routes)/interior/constants";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { useState } from "react";
+import { Card, CardFooter } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+
+import downloadPhoto from "@/public/downolad";
+import appendNewToName from "@/public/newname";
+import { formSchema } from "@/app/(dashboard)/(routes)/interior/constants";
+
+import Heading from "@/components/heading";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Card, CardFooter } from "@/components/ui/card";
-import downloadPhoto from "../../../../public/downolad";
-import appendNewToName from "../../../../public/newname";
+
 const InteriorPage = () => {
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
@@ -103,7 +102,7 @@ const InteriorPage = () => {
           )}
           <div className=" flex items-center">
             {images.map((src) => (
-              <Card key={src} className="rounded-lg">
+              <Card key={src} className="rounded-lg block m-auto">
                 <div className="relative aspect-square">
                   <img alt="image" src={src} width={300} height={300} />
                 </div>
