@@ -20,7 +20,7 @@ export const LandingNavBar = () => {
       <Link href="/" className="flex items-center">
         <div className="relative h-10 w-full mr-4 max-w-[365px]">
           <img
-            className="lg:w-[365px] lg:h-[41px] sm:w-[200px] sm:h-[27px] md:w-[300px] md:h-[35px]"
+            className="lg:w-[365px] lg:h-[41px] sm:w-[300px] sm:h-[50px] md:w-[300px] md:h-[35px] h-[30px] w-[650px]"
             alt="logo"
             src="/fdgfdgs.svg"
           />
@@ -35,7 +35,7 @@ export const LandingNavBar = () => {
         </a>
         <a
           href={isSignedIn ? "/dashboard" : "/sign-up"}
-          className=" relative inline-flex items-center justify-center  p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 rounded-2xl shadow-2xl group  w-30 h-14 shadow-inherit "
+          className=" relative inline-flex items-center justify-center  p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 rounded-2xl shadow-2xl group  w-30 h-10 shadow-inherit sm:h-15 "
         >
           <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-amber-400 rounded-2xl blur-md ease "></span>
           <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-[-180deg] ease">

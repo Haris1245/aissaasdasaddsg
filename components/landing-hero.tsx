@@ -33,15 +33,16 @@ const LandingHero = () => {
       <div>
         <a
           href={isSignedIn ? "/dashboard" : "/sign-up"}
-          className=" relative inline-flex items-center justify-center  p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 rounded-2xl shadow-2xl group  w-30 h-10 shadow-inherit"
+          className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-xl"
         >
-          <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-amber-400 rounded-2xl blur-md ease "></span>
-          <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
-            <span className="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-red-600 rounded-full blur-md "></span>
-            <span className="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-orange-600 rounded-full blur-md "></span>
+          <span className="w-full h-full bg-gradient-to-br from-amber-400 via-orange-600 to-red-600 group-hover:from-red-600 group-hover:via-[#ff7708] group-hover:to-orange-600 absolute"></span>
+          <span className="relative px-6 py-3 transition-all ease-out bg-[#121313] rounded-lg group-hover:bg-opacity-0 duration-400">
+            <span className="relative text-white">Get Started</span>
           </span>
-          <span className="relative text-white">Get started</span>
         </a>
+      </div>
+      <div className="text-zinc-400 text-xs md:tetx-sm font-normal">
+        No Credit Card Required
       </div>
     </div>
   );
