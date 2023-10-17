@@ -1,12 +1,5 @@
 "use client";
-import {
-  FerrisWheel,
-  Figma,
-  FileType,
-  Image,
-  MessageSquare,
-  Video,
-} from "lucide-react";
+import { FerrisWheel, Figma, Image, MessageSquare, Video } from "lucide-react";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { useAuth } from "@clerk/nextjs";
@@ -42,14 +35,14 @@ const LandingContent = () => {
   const { isSignedIn } = useAuth();
   return (
     <div className="px-10 pb-20">
-      <h2 className="text-center mb-10 font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-amber-400 via-orange-600 to-red-500">
+      <h2 className="text-center mb-10 font-extrabold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-amber-400 via-orange-600 to-red-500">
         15 AI Tools
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className=" grid xl:grid-cols-1  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 justify-center">
         {aitools.map((tool) => (
           <Card
             key={tool.description}
-            className="bg-[#1d1f22] border-none text-white"
+            className="hover:shadow-xl hover:shadow-[#333333] bg-[#1d1f22] border-none text-white "
           >
             <CardHeader>
               <CardTitle className="flex items-center gap-x-2">
@@ -65,295 +58,153 @@ const LandingContent = () => {
           </Card>
         ))}
       </div>
-      <section className="bg-[#121313] dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-          <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white dark:text-white">
-              Designed for{" "}
-              <strong className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-                You
-              </strong>
-            </h2>
-            <p className="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-              Here at WinnerAI we are revolutionizing AI technology forever.
-            </p>
+      <h1 className="text-6xl font-bold text-white text-center mt-[200px] mb-[30px]">
+        Designed for{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 via-red-700 to-orange-600">
+          You
+        </span>
+      </h1>
+      <div className="h-full w-full bg-transparent p-10 mb-[100px]">
+        <div className="flex flex-wrap items-center justify-center max-w-4xl mx-auto gap-4 sm:gap-0">
+          <div className="w-full p-6 bg-[#1e2021] border border-[#212122] shdow-lg shadow-[#2e2e30] rounded-lg sm:w-1/2 bg-opacity-20 sm:rounded-r-none sm:p-8">
+            <div className="mb-6">
+              <h3 className="text-2xl font-semibold jakarta text-gray-100 sm:text-4xl">
+                Free Plan
+              </h3>
+            </div>
+            <div className="mb-4 space-x-2">
+              <span className="text-4xl font-bold text-gray-100">$0/mo</span>
+            </div>
+            <ul className="mb-6 space-y-2 text-gray-300">
+              <li className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="">5 Uses of all the tools</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="">Join our Discord Server</span>
+              </li>
+            </ul>
+            <a
+              href={isSignedIn ? "/dashboard" : "/sign-up"}
+              className="block px-8 py-3 text-sm font-semibold text-center text-gray-100 transition duration-100 bg-white rounded-lg outline-none bg-opacity-10 hover:bg-opacity-20 md:text-base"
+            >
+              Get Started for Free
+            </a>
           </div>
-          <div className="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-[#1d1f22] rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <h3 className="mb-4 text-2xl font-semibold">Noobie</h3>
-              <p className="font-normal text-gray-500 sm:text-lg dark:text-gray-400">
-                Best option for personal use & for your next project.
-              </p>
-              <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">Free</span>
-              </div>
 
-              <ul role="list" className="mb-8 space-y-4 text-left">
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>5 of our AI tools for your use</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>No setup, or hidden fees</span>
-                </li>
-
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>
-                    <span className="font-normal">
-                      Access to our dicord server
-                    </span>
-                  </span>
-                </li>
-              </ul>
+          <div className="break-words shadow-[4px_6px_128px_29px_#dd6b20,4px_6px_18px_2px_#e53e3e] w-full p-6 rounded-3xl  sm:w-1/2 bg-gradient-to-br from-yellow-500 via-red-600 to-orange-600 sm:p-8">
+            <div className="flex flex-col items-start justify-between gap-4 mb-6 lg:flex-row">
               <div>
-                <a
-                  href={isSignedIn ? "/dashboard" : "/sign-up"}
-                  className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-xl"
-                >
-                  <span className="w-full h-full bg-gradient-to-br from-amber-400 via-orange-600 to-red-600 group-hover:from-red-600 group-hover:via-[#ff7708] group-hover:to-orange-600 absolute"></span>
-                  <span className="relative px-6 py-3 transition-all ease-out bg-[#1d1f22] rounded-lg group-hover:bg-opacity-0 duration-400">
-                    <span className="relative text-white">Get Started</span>
-                  </span>
-                </a>
+                <h3 className="text-2xl font-semibold text-white jakarta sm:text-4xl">
+                  Pro Plan
+                </h3>
               </div>
+              <span className="order-first inline-block px-3 py-1 text-xs font-semibold tracking-wider text-white uppercase bg-black rounded-full lg:order-none bg-opacity-20">
+                Go Pro
+              </span>
             </div>
-
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center   text-white bg-[#1d1f22] rounded-lg border border-gray-100  shadow-[0_10px_100px_rgba(255,_255,_255,_0.7)]  dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white ">
-              <h3 className="mb-4 text-2xl font-semibold">Intermidiate</h3>
-              <p className="font-normal text-gray-500 sm:text-lg dark:text-gray-400">
-                Relevant for multiple users, extended & premium support.
-              </p>
-              <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">$5</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
-              </div>
-
-              <ul role="list" className="mb-8 space-y-4 text-left">
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>10 of our AI tools for your use</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>No setup, or hidden fees</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>
-                    <span className="font-normal">
-                      Access to our discord server
-                    </span>
-                  </span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>
-                    <span className="font-normal">Become an Affiliate</span>
-                  </span>
-                </li>
-              </ul>
-              <div>
-                <a
-                  href={isSignedIn ? "/dashboard" : "/sign-up"}
-                  className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-xl"
-                >
-                  <span className="w-full h-full bg-gradient-to-br from-amber-400 via-orange-600 to-red-600 group-hover:from-red-600 group-hover:via-[#ff7708] group-hover:to-orange-600 absolute"></span>
-                  <span className="relative px-6 py-3 transition-all ease-out bg-[#1d1f22] rounded-lg group-hover:bg-opacity-0 duration-400">
-                    <span className="relative text-white">Get Started</span>
-                  </span>
-                </a>
-              </div>
+            <div className="mb-4 space-x-2">
+              <span className="text-4xl font-bold text-white">$8.9/mo</span>
+              <span className="text-2xl text-indigo-100 line-through">
+                $12/mo
+              </span>
             </div>
-
-            <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-[#1d1f22] rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-              <h3 className="mb-4 text-2xl font-semibold">AI Expert</h3>
-              <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                Best for large scale uses and extended redistribution rights.
-              </p>
-              <div className="flex justify-center items-baseline my-8">
-                <span className="mr-2 text-5xl font-extrabold">$10</span>
-                <span className="text-gray-500 dark:text-gray-400">/month</span>
-              </div>
-
-              <ul role="list" className="mb-8 space-y-4 text-left">
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>All of our AI tools for your use</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>No setup, or hidden fees</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>
-                    <span className="font-normal">
-                      Access to our discord server
-                    </span>
-                  </span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>
-                    <span className="font-normal">Become an Affiliate</span>
-                  </span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <svg
-                    className="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  <span>
-                    <span className="font-normal">Join the AI revolution</span>
-                  </span>
-                </li>
-              </ul>
-              <div>
-                <a
-                  href={isSignedIn ? "/dashboard" : "/sign-up"}
-                  className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-xl"
+            <ul className="mb-6 space-y-2 text-indigo-100">
+              <li className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
                 >
-                  <span className="w-full h-full bg-gradient-to-br from-amber-400 via-orange-600 to-red-600 group-hover:from-red-600 group-hover:via-[#ff7708] group-hover:to-orange-600 absolute"></span>
-                  <span className="relative px-6 py-3 transition-all ease-out bg-[#1d1f22] rounded-lg group-hover:bg-opacity-0 duration-400">
-                    <span className="relative text-white">Get Started</span>
-                  </span>
-                </a>
-              </div>
-            </div>
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="">Unlimited uses of the AI tools</span>
+              </li>
+
+              <li className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                    className=""
+                  ></path>
+                </svg>
+                <span className="">Join the Discord Server</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="">Become an Affiliate</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-shrink-0 w-5 h-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="">Suggest Features</span>
+              </li>
+            </ul>
+            <a
+              href={isSignedIn ? "/dashboard" : "/sign-up"}
+              className="block px-8 py-3 text-sm font-semibold text-center text-white transition duration-100 bg-white rounded-lg outline-none bg-opacity-20 hover:bg-opacity-30 md:text-base"
+            >
+              Get Started for Free
+            </a>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

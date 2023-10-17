@@ -7,6 +7,7 @@ import { useAuth } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Newspaper } from "lucide-react";
 
 const font = Montserrat({
   weight: "600",

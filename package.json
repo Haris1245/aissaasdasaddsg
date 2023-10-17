@@ -36,6 +36,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.2",
     "react-markdown": "^9.0.0",
+    "react-twitter-widgets": "^1.11.0",
     "react-use-downloader": "^1.2.4",
     "replicate": "^0.18.1",
     "tailwind-merge": "^1.14.0",
@@ -47,7 +48,7 @@
   },
   "devDependencies": {
     "encoding": "^0.1.13",
-    "prisma": "^5.4.1",
+    "prisma": "^5.4.2",
     "tailwindcss-animated": "^1.0.1"
   }
 }

@@ -73,7 +73,7 @@ const StableDiffusionPage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="A logo for a banking app"
+                        placeholder="Robot Cowboy riding a horse in space next Albert Enstein , cinematic, dramatic, unreal engine"
                         {...field}
                       />
                     </FormControl>

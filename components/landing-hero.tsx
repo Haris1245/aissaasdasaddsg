@@ -3,6 +3,7 @@ import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import TypeWriterComponent from "typewriter-effect";
 import { Button } from "./ui/button";
+import { Newspaper } from "lucide-react";
 const LandingHero = () => {
   const { isSignedIn } = useAuth();
   return (
@@ -38,6 +39,15 @@ const LandingHero = () => {
           <span className="w-full h-full bg-gradient-to-br from-amber-400 via-orange-600 to-red-600 group-hover:from-red-600 group-hover:via-[#ff7708] group-hover:to-orange-600 absolute"></span>
           <span className="relative px-6 py-3 transition-all ease-out bg-[#121313] rounded-lg group-hover:bg-opacity-0 duration-400">
             <span className="relative text-white">Get Started</span>
+          </span>
+        </a>
+        <a
+          href="https://winnerai.beehiiv.com/subscribe"
+          className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-xl ml-4"
+        >
+          <span className="w-full h-full bg-gradient-to-br from-amber-400 via-orange-600 to-red-600 group-hover:from-red-600 group-hover:via-[#ff7708] group-hover:to-orange-600 absolute"></span>
+          <span className="relative px-6 py-3 transition-all ease-out bg-[#121313] rounded-lg group-hover:bg-opacity-0 duration-400">
+            <span className="relative text-white">NewsLetter</span>
           </span>
         </a>
       </div>

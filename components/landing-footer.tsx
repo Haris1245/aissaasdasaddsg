@@ -11,7 +11,7 @@ const LandingFooter = () => {
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li>
               <a href="/about" className="mr-4 hover:underline md:mr-6 ">
-                About
+                About Us
               </a>
             </li>
             <li>

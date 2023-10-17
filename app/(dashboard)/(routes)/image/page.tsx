@@ -31,8 +31,6 @@ import {
   formSchema,
   resolutionOptions,
 } from "@/app/(dashboard)/(routes)/image/constants";
-import downloadPhoto from "./downolad";
-import appendNewToName from "./newname";
 
 const ImagePage = () => {
   const router = useRouter();
@@ -179,12 +177,7 @@ const ImagePage = () => {
                 </div>
                 <CardFooter
                   className="p-2 bg-slate-400 h-10"
-                  onClick={() =>
-                    downloadPhoto(
-                      src,
-                      appendNewToName(`winnerai-image-generation.png`)
-                    )
-                  }
+                  onClick={() => window.open(src)}
                 >
                   <Download className="block m-auto w-20 " />
                 </CardFooter>
