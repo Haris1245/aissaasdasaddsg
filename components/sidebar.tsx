@@ -25,6 +25,7 @@ import {
   Film,
   Music2,
 } from "lucide-react";
+import { FreeCounter } from "@/components/free-counter";
 
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 const routes = [
@@ -33,6 +34,7 @@ const routes = [
     icon: Bot,
     href: "/winner",
     color: "text-cyan-400",
+    price: "Free"
   },
   {
     label: "Dashboard",
@@ -133,7 +135,12 @@ const routes = [
   },
 ];
 
-const SideBar = () => {
+interface SidebarProps {
+  apiLimitCount: number;
+  isPro: boolean;
+}
+
+const SideBar = ({ apiLimitCount = 0 ,isPro = false}: SidebarProps) => {
   const pathname = usePathname();
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#121212] text-white overflow-scroll">
@@ -149,7 +156,7 @@ const SideBar = () => {
               href={route.href}
               key={route.href}
               className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:tetx-white hover:bg-white/10 rounded-lg transition",
+                "text-sm group flex p-3 w-full justify-between font-medium cursor-pointer hover:tetx-white hover:bg-white/10 rounded-lg transition",
                 pathname === route.href
                   ? "text-white bg-white/10 "
                   : "text-zinc-400"
@@ -159,9 +166,13 @@ const SideBar = () => {
                 <route.icon className={cn("h-5 w-5 mr-3", route.color)} />
                 {route.label}
               </div>
+              <h2 className=" text-white">{route.price}</h2>
             </Link>
           ))}
         </div>
+      </div>
+      <div>
+        <FreeCounter isPro ={isPro} apiLimitCount={apiLimitCount} />
       </div>
     </div>
   );

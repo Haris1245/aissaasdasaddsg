@@ -1,9 +1,13 @@
 import { UserButton } from "@clerk/nextjs";
 import MobileSidebar from "./mobile-sidebar";
-const NavBar = () => {
+import { getApiLimitCount } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
+const NavBar = async () => {
+  const apiLimitCount = await getApiLimitCount()
+  const isPro = checkSubscription()
   return (
     <div className="flex items-center p-4">
-      <MobileSidebar />
+      <MobileSidebar apiLimitCount={apiLimitCount} isPro={isPro} />
       <div className="flex w-full justify-end hover:animate-pulse">
         <UserButton afterSignOutUrl="/" />
       </div>

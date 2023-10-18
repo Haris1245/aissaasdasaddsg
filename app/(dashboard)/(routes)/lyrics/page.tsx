@@ -22,8 +22,11 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useProModal } from "@/hooks/use-pro-modal";
+import toast from "react-hot-toast";
 
 const MusicLyricsPage = () => {
+  const proModal= useProModal()
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
     []
@@ -53,7 +56,12 @@ const MusicLyricsPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error);
+      if(error?.response?.status === 403) {
+        proModal.onOpen();
+      }
+      else {
+        toast.error("Something went wrong!")
+      }
     } finally {
       router.refresh();
     }

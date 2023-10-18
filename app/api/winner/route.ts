@@ -12,8 +12,9 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { messages } = body;
 
-
-
+    if (!userId) {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
 
     if (!openai.apiKey) {
       return new NextResponse('Replicate API Key not configured', { status: 500 });
@@ -23,6 +24,10 @@ export async function POST(req: Request) {
       return new NextResponse('Messages are required', { status: 400 });
     }
 
+
+
+
+
     const response = await openai.chat.completions.create({
 
       model: "gpt-3.5-turbo",
@@ -30,6 +35,9 @@ export async function POST(req: Request) {
       messages: [{"role": "system", "content" : "You are a helpful chatbot"}, ...messages],
 
   })
+
+ 
+
 
   return new NextResponse(JSON.stringify(response.choices[0].message))
 ;

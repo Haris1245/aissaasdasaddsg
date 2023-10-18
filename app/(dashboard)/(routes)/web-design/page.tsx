@@ -21,8 +21,12 @@ import { formSchema } from "@/app/(dashboard)/(routes)/interior/constants";
 import Heading from "@/components/heading";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
+import { useProModal } from "@/hooks/use-pro-modal";
+import Image from "next/image";
+import toast from "react-hot-toast";
 
 const WebDesignPage = () => {
+  const proModal= useProModal()
   const router = useRouter();
   const [images, setImages] = useState<string[]>([]);
 
@@ -44,8 +48,12 @@ const WebDesignPage = () => {
       setImages(response.data);
       form.reset();
     } catch (error: any) {
-      console.log(error);
-    } finally {
+      if(error?.response?.status === 403) {
+        proModal.onOpen();
+      } 
+      else {
+        toast.error("Something went wrong!")
+      }   } finally {
       router.refresh();
     }
   };
@@ -104,7 +112,7 @@ const WebDesignPage = () => {
             {images.map((src) => (
               <Card key={src} className="rounded-lg block m-auto">
                 <div className="relative aspect-square">
-                  <img alt="image" src={src} layout="fill" />
+                  <Image alt="image" src={src} fill />
                 </div>
                 <CardFooter className="p-2">
                   <Button

@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs';
 import OpenAI from 'openai';
+import { increaseApiLimit, checkApiLimit } from '@/lib/api-limit';
+import { checkSubscription } from '@/lib/subscription';
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -13,7 +16,9 @@ export async function POST(req: Request) {
     const { messages } = body;
 
 
-
+    if (!userId) {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
 
     if (!openai.apiKey) {
       return new NextResponse('Replicate API Key not configured', { status: 500 });
@@ -23,6 +28,13 @@ export async function POST(req: Request) {
       return new NextResponse('Messages are required', { status: 400 });
     }
 
+    const freeTrial = await checkApiLimit()
+    const isPro = await checkSubscription()
+
+    if (!freeTrial && !isPro) {
+      return new NextResponse("Free trial has expired", {status: 403})
+    }
+
     const response = await openai.chat.completions.create({
 
       model: "gpt-3.5-turbo",
@@ -30,6 +42,10 @@ export async function POST(req: Request) {
       messages: [{"role": "system", "content" : "You are a helpful business consultant that helps entrepreneurs verify and make business decisions"}, ...messages],
 
   })
+
+  if(!isPro){
+    await increaseApiLimit()
+}
 
   return new NextResponse(JSON.stringify(response.choices[0].message))
 ;

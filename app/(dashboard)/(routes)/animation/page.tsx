@@ -17,8 +17,12 @@ import { Loader } from "@/components/loader";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useProModal } from "@/hooks/use-pro-modal";
+import toast from "react-hot-toast";
 
 const AnimationPage = () => {
+  const proModal= useProModal()
+
   const router = useRouter();
   const [animation, setAnimation] = useState<string>();
 
@@ -39,7 +43,11 @@ const AnimationPage = () => {
       setAnimation(response.data[0]);
       form.reset();
     } catch (error: any) {
-      console.log(error);
+      if(error?.response?.status === 403) {
+        proModal.onOpen();
+      }else {
+        toast.error("Something went wrong!")
+      }
     } finally {
       router.refresh();
     }

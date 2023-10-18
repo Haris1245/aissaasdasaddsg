@@ -22,6 +22,7 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
 
 const WinnerPage = () => {
   const router = useRouter();
@@ -53,7 +54,7 @@ const WinnerPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error);
+      toast.error("Something went wrong!")     
     } finally {
       router.refresh();
     }

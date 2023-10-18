@@ -115,7 +115,7 @@ const LandingContent = () => {
             </a>
           </div>
 
-          <div className="break-words shadow-[4px_6px_128px_29px_#dd6b20,4px_6px_18px_2px_#e53e3e] w-full p-6 rounded-3xl  sm:w-1/2 bg-gradient-to-br from-yellow-500 via-red-600 to-orange-600 sm:p-8">
+          <div className="break-words w-full p-6 rounded-3xl  sm:w-1/2 bg-gradient-to-br from-yellow-500 via-red-600 to-orange-600 sm:p-8">
             <div className="flex flex-col items-start justify-between gap-4 mb-6 lg:flex-row">
               <div>
                 <h3 className="text-2xl font-semibold text-white jakarta sm:text-4xl">

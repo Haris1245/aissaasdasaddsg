@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs';
 import Replicate from "replicate"
+import { increaseApiLimit, checkApiLimit } from '@/lib/api-limit';
+import { checkSubscription } from '@/lib/subscription';
 
 const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN!,
@@ -20,6 +22,12 @@ export async function POST(req: Request) {
     if (!prompt) {
       return new NextResponse('Prompt is required', { status: 400 });
     }
+    const freeTrial = await checkApiLimit()
+    const isPro = await checkSubscription()
+
+    if (!freeTrial && !isPro) {
+      return new NextResponse("Free trial has expired", {status: 403})
+    }
 
     const response = await replicate.run(
         "hilongjw/sdxl-v1:84773f63dcb13633bd906b48b989d3026c33fd4946c2cb6779fecfefd2c97e1f",
@@ -31,6 +39,9 @@ export async function POST(req: Request) {
         }
       );
       
+      if(!isPro){
+        await increaseApiLimit()
+  }
 
   return NextResponse.json(await response)
 ;
