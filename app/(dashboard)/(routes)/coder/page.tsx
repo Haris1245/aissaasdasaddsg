@@ -26,7 +26,7 @@ import { BotAvatar } from "@/components/bot-avatar";
 import { useProModal } from "@/hooks/use-pro-modal";
 import toast from "react-hot-toast";
 
-const ConversationPage = () => {
+const CodingPage = () => {
   const proModal= useProModal()
 
   const router = useRouter();
@@ -151,4 +151,4 @@ const ConversationPage = () => {
   );
 };
 
-export default ConversationPage;
+export default CodingPage;

@@ -1,30 +1,13 @@
 "use client";
-import { cn } from '@/lib/utils';
 import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useProModal } from '@/hooks/use-pro-modal';
 import { Badge } from '@/components/ui/badge';
 import {
-    Bot,
-    Check,
-    Code,
-    FileVideo,
 
-    Frame,
-    Home,
-    ImageIcon,
-    Layout,
-    MessageSquare,
-    Music,
-    Music2,
-    PenLine,
-    PenTool,
-    VenetianMask,
-    VideoIcon,
     Zap,
   } from "lucide-react";
-import { Card } from '@/components/ui/card';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 const ProModal = () => {

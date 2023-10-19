@@ -16,13 +16,10 @@ import {
   FileVideo,
   Home,
   Frame,
-  Camera,
   VenetianMask,
-  ShoppingCart,
   Layout,
   PenTool,
   Bot,
-  Film,
   Music2,
 } from "lucide-react";
 import { FreeCounter } from "@/components/free-counter";

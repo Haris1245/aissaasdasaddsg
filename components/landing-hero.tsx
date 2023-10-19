@@ -1,9 +1,7 @@
 "use client";
 import { useAuth } from "@clerk/nextjs";
-import Link from "next/link";
 import TypeWriterComponent from "typewriter-effect";
-import { Button } from "./ui/button";
-import { Newspaper } from "lucide-react";
+
 const LandingHero = () => {
   const { isSignedIn } = useAuth();
   return (

@@ -26,7 +26,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import toast from "react-hot-toast";
 
 
-const ConversationPage = () => {
+const ConsultantPage = () => {
   const proModal= useProModal()
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
@@ -141,4 +141,4 @@ const ConversationPage = () => {
   );
 };
 
-export default ConversationPage;
+export default ConsultantPage;

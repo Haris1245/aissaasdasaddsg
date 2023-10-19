@@ -24,7 +24,7 @@ import { Loader } from "@/components/loader";
 import { useProModal } from "@/hooks/use-pro-modal";
 import toast from "react-hot-toast";
 
-const InteriorPage = () => {
+const EmojiPage = () => {
   const proModal= useProModal()
 
   const router = useRouter();
@@ -133,4 +133,4 @@ const InteriorPage = () => {
   );
 };
 
-export default InteriorPage;
+export default EmojiPage;

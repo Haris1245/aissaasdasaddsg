@@ -4,7 +4,7 @@ import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Frame, PenLine, PenTool } from "lucide-react";
+import { PenTool } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -24,7 +24,7 @@ import { Button } from "@/components/ui/button";
 import { useProModal } from "@/hooks/use-pro-modal";
 import toast from "react-hot-toast";
 
-const GraphicDesignPage = () => {
+const IllustrationPage = () => {
   const proModal= useProModal()
 
   const router = useRouter();
@@ -133,4 +133,4 @@ const GraphicDesignPage = () => {
   );
 };
 
-export default GraphicDesignPage;
+export default IllustrationPage;

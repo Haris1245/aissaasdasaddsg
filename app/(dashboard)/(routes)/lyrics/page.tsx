@@ -6,7 +6,7 @@ import axios from "axios";
 import { cn } from "@/lib/utils";
 import OpenAI from "openai";
 
-import { MessageSquare, Music2, Volume2 } from "lucide-react";
+import {  Music2} from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
