@@ -50,8 +50,7 @@ const AboutPage = () => {
               <li>
                 Youth-Driven AI: We believe that teenagers possess unique
                 insights and unbridled creativity. We provide them with the
-                tools, resources, and mentorship necessary to harness AI's
-                potential and address real-world challenges.
+                tools, resources, and mentorship necessary to harness AI can address real-world challenges.
               </li>
               <li>
                 Collaborative Ecosystem: Our platform fosters a supportive,
