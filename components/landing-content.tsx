@@ -127,7 +127,7 @@ const LandingContent = () => {
               </span>
             </div>
             <div className="mb-4 space-x-2">
-              <span className="text-4xl font-bold text-white">$8.9/mo</span>
+              <span className="text-4xl font-bold text-white">$8.99/mo</span>
               <span className="text-2xl text-indigo-100 line-through">
                 $12/mo
               </span>

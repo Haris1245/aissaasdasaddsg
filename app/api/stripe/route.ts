@@ -41,7 +41,7 @@ export async function GET() {
                     name: "WinnerAI Pro",
                     description: "Unlimited uses of WinnerAI models"
                     },
-                    unit_amount: 1000,
+                    unit_amount: 899,
                     recurring: {
                         interval: "month"
                     }
