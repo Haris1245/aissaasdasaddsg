@@ -1,6 +1,58 @@
 {
 	"functions": {
-		"api/test.js": {
+		"api/animation.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/coder.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/consultant.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/copywriter.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/emoji.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/graphic-design.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/illustration.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/image.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/interior.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/lyrics.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/music.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/stable.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/video.ts": {
+			"memory": 3008,
+			"maxDuration": 300
+		},
+        "api/winner.ts": {
 			"memory": 3008,
 			"maxDuration": 300
 		}
