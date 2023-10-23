@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         await increaseApiLimit()
   }
 
-  return NextResponse.json(await response)
+  return await NextResponse.json(JSON.stringify(response))
 ;
   } catch (error) {
     console.error('[VIDEO ERROR]', error);
