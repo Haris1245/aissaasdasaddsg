@@ -9,7 +9,7 @@ const openai = new OpenAI({
 });
 
 
-
+export const maxDuration = 5;
 const instruction: OpenAI.Chat.ChatCompletionMessage = {
   role: "system",
   content: "You are a copywriters",
