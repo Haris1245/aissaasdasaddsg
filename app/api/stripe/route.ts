@@ -5,6 +5,7 @@ import { stripe } from "@/lib/stripe"
 import { absoluteUrl } from "@/lib/utils"
 
 const settingsUrl = absoluteUrl("/settings")
+export const maxDuration = 300;
 
 export async function GET() {
     try{
