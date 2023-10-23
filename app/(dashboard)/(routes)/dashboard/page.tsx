@@ -86,12 +86,6 @@ const tools = [
   },
 
   {
-    label: "Music Generation",
-    icon: Music,
-    href: "/music",
-    color: "text-emerald-500",
-  },
-  {
     label: "Emoji Generation",
     icon: VenetianMask,
     href: "/emoji",
