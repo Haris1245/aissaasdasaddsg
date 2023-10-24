@@ -58,6 +58,6 @@ return new NextResponse(JSON.stringify({url: stripeSession.url}))
     }
     catch(error){
         console.log("[STRIPE ERROR]", error)
-        return new NextResponse("Internal Error", {status: 500})
+        return new NextResponse(`${error}`, {status: 500})
     }
 }
