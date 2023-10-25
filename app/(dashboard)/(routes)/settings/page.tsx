@@ -1,4 +1,4 @@
-
+"use client"
 
 import Heading from "@/components/heading";
 import { Settings, Zap } from "lucide-react";
