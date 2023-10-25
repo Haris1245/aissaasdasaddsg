@@ -102,7 +102,7 @@ const VideoPage = () => {
           {!video && !isLoading && <Empty label="No video yet" />}
           {video && (
             <video
-              className="w-300 h-80 aspect-video mt-8 rounded-lg border bg-black"
+              className="w-300 h-80 aspect-video mt-8 rounded-lg border bg-black block m-auto"
               controls
             >
               <source src={video} />
