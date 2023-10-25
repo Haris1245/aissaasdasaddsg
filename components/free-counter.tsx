@@ -24,7 +24,7 @@ export const FreeCounter = ({ apiLimitCount = 0 , isPro = false}: FreeCounterPro
     return null
   }
   return (
-    <div className="px-3 flex flex-col sm:pt-0 w-full h-screen lg:pt-[200px] md:pt-[180px] xl:pt-[200px]">
+    <div className="px-3 flex flex-col sm:pt-0 w-full  ">
       <Card className="bg-white/10 border-0">
         <CardContent className="py-6">
           <div className="text-center text-sm text-white mb-4 space-y-4">
