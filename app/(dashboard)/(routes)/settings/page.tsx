@@ -21,7 +21,7 @@ const SettingsPage =async () => {
           {isPro ? "You are currently on a Pro plan." : "You are currently on a free plan"}
         </div>
         <div className="block">
-          {isPro ? <a href="https://discord.gg/2tP4wsHF27" className="ml-0.5 font-extrabold"><Button  className="bg-orange-500 hover:bg-orange-800">DISCORD SERVER</Button></a> : <h1 className="text-black font-bold">DISCORD_SERVER - Pro Plan</h1>}
+          {isPro ? <a href="https://discord.gg/2tP4wsHF27" className="ml-0.5 font-extrabold "><Button  className="bg-orange-500 hover:bg-orange-800">DISCORD SERVER</Button></a> : <h1 className="text-black font-bold">DISCORD_SERVER - Pro Plan</h1>}
         </div>
       </div>
     </div>
