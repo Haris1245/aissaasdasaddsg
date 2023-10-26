@@ -70,7 +70,7 @@ const MusicLyricsPage = () => {
   return (
     <div>
       <Heading
-        title="Musci Lyrics"
+        title="Music Lyrics"
         description="AI Music Lyrics writer"
         icon={Music2}
         iconColor="text-orange-500"
