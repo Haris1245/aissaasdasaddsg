@@ -23,7 +23,7 @@ import {
   Music2,
 } from "lucide-react";
 import { FreeCounter } from "@/components/free-counter";
-
+import { track } from "@vercel/analytics";
 const montserrat = Montserrat({ weight: "600", subsets: ["latin"] });
 const routes = [
   {
@@ -144,6 +144,8 @@ const SideBar = ({ apiLimitCount = 0 ,isPro = false}: SidebarProps) => {
         <div className="space-y-1">
           {routes.map((route) => (
             <Link
+            onClick={() => {
+              track('Model ')}}
               href={route.href}
               key={route.href}
               className={cn(

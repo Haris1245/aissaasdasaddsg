@@ -20,6 +20,7 @@ import {
   VenetianMask,
   VideoIcon,
 } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 const tools = [
   {
@@ -126,6 +127,7 @@ export default function DashboardPage() {
         {tools.map((tool) => (
           <Link href={tool.href} key={tool.href}>
             <Card
+            onClick={() => track('Model')}
               key={tool.href}
               className="p-4 hover:drop-shadow shadow- border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer"
             >
