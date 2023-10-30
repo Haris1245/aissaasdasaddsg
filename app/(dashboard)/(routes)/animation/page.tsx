@@ -56,8 +56,8 @@ const AnimationPage = () => {
   return (
     <div>
       <Heading
-        title="Animation"
-        description="AI Animation Generator"
+        title="Video"
+        description="AI Video Generator"
         icon={FileVideo}
         iconColor="text-lime-500"
       />
