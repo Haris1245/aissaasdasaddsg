@@ -75,12 +75,6 @@ const tools = [
   },
   {
     label: "Video Generation",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-orange-700",
-  },
-  {
-    label: "Animation Generation",
     icon: FileVideo,
     href: "/animation",
     color: "text-lime-500",
